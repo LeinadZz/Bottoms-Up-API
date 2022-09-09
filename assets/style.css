@@ -3,7 +3,7 @@
 }
 
 header {
-    background-color: #424f64;
+    background-color: #aebe41;
     border-bottom: #000;
     border-style: solid;
 }
@@ -29,6 +29,16 @@ header {
     padding-left: 20px;
     position: relative;
     top: 30px;
+    left: 40px;
+}
+
+.hero {
+    height: 700px;
+    width: 100%;
+    margin-bottom: 55px;
+    background-image: url("https://img1.wsimg.com/isteam/ip/f3cf8c90-55f9-4f60-8452-a16455702930/AdobeStock_132508411.jpeg/:/rs=h:1000,cg:true,m");
+    background-size: cover;
+    background-position: center;
 }
 
 .footer {
