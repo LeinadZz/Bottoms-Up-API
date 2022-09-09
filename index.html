@@ -20,22 +20,32 @@
       <h2 calss="subtitle is-2" id="motto">"Food worth Finding"</h2>
     </header>
 
-
-    <main>
-        <section id="inputs">
-
+    <main class="columns">
+        <section id="inputs" class="column is-one-fifth">
+            <form id="input-form">
+                <label for="location">Location:</label>
+                <input type="text" id="input-location" name="location"><br>
+                <label for="radius">Radius</label>
+                <input type="text" id="input-radius" name="radius"><br>
+                <label for="food-type">Food Type:</label>
+                <input type="text" id="input-food-type" name="food-type"><br>
+                <button class="button is-info is-rounded">Submit</button>
         </section>
 
-        <section id="results">
-
+        <section id="results" class="column is-one-fifth">
+            <button class="button is-info is-rounded">Prev</button>
+            <button class="button is-info is-rounded">Next</button>
         </section>
 
-        <section id="map"></section>
+        <section id="map" class="column is-three-fifths">
+        
+        </section>
+        
     </main>
 
 
     <footer>
-
+        <h2 class="footer">Made with ❤️</h2>
     </footer>
 
     <script src="assets/script.js"></script>
