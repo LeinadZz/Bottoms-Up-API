@@ -32,6 +32,10 @@ header {
     left: 40px;
 }
 
+#submit {
+    margin-top: 20px;
+}
+
 .hero {
     height: 700px;
     width: 100%;
