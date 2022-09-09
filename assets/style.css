@@ -29,10 +29,24 @@ header {
     padding-left: 20px;
     position: relative;
     top: 30px;
+}
 
 .footer {
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+}
+
+#inputs{
+    display:flex;
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: right;
+    align-content: center;
+}
+
+#input-form{
+    display:block;
+    padding:5px;
 }
