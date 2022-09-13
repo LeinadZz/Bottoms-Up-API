@@ -1,9 +1,10 @@
 :root {
     --main-color: #424f64;
+    --header\footer-color: rgb(234, 201, 10)
 }
 
 header {
-    background-color: #aebe41;
+    background-color: var(--header\footer-color);
     border-bottom: #000;
     border-style: solid;
 }
@@ -37,19 +38,25 @@ header {
 }
 
 .hero {
-    height: 700px;
+    height: 650px;
     width: 100%;
     margin-bottom: 55px;
-    background-image: url("https://img1.wsimg.com/isteam/ip/f3cf8c90-55f9-4f60-8452-a16455702930/AdobeStock_132508411.jpeg/:/rs=h:1000,cg:true,m");
+    background-image: url("https://www.roamingtheusa.com/wp-content/uploads/2021/06/beer-tasting-1024x682.jpg");
     background-size: cover;
     background-position: center;
 }
 
 .footer {
+    background-color: var(--header\footer-color);
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+}
+
+.footer h2 {
+    font-weight: bolder;
+    font-size: larger;
 }
 
 #inputs{
