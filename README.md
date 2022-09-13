@@ -12,7 +12,7 @@ A web-based app designed to help the user find breweries near them.
    As A user <br />
    I WANT to see breweries in my city <br />
    SO THAT I can make plans accordingly 
-
+   
 ## Acceptance Criteria
 Given that I am using a brewery finder to make plans <br />
 When I open the app <br />
