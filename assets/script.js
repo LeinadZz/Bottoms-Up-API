@@ -6,12 +6,9 @@ $("#submit-btn").on("click", function(event) {
 
 	var userLocation = $('#input-location').val().trim();
 	var userRadius = $('#input-radius').val().trim();
-	var userFood = $('#input-food-type').val().trim();
   
-	
   	localStorage.setItem("Location", JSON.stringify(userLocation));
 	localStorage.setItem("Radius", JSON.stringify(userRadius));
-	localStorage.setItem("Food", JSON.stringify(userFood));
 	});
 });
 
