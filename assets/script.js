@@ -12,20 +12,12 @@ $("#submit-btn").on("click", function(event) {
 	});
 });
 
-// Yelp API
-const options = {
-	method: 'GET',
-	headers: {
-		'X-RapidAPI-Key': '48c1efcdf0mshbc4f579e09271eep1736d1jsn77c5309cc348',
-		'X-RapidAPI-Host': 'yelp-com.p.rapidapi.com'
-	}
-};
-
-// Example URL/Query
-fetch('https://yelp-com.p.rapidapi.com/search/nearby/37.788719679657554/-122.40057774847898?radius=5&term=Restaurants&offset=0', options)
+// Breweries API
+fetch('https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3')
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
+
 
 
 // Google Maps API
