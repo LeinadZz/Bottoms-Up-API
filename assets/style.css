@@ -1,9 +1,10 @@
 :root {
     --main-color: #424f64;
+    --header\footer-color: rgb(234, 201, 10)
 }
 
 header {
-    background-color: #aebe41;
+    background-color: var(--header\footer-color);
     border-bottom: #000;
     border-style: solid;
 }
@@ -46,10 +47,16 @@ header {
 }
 
 .footer {
+    background-color: var(--header\footer-color);
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+}
+
+.footer h2 {
+    font-weight: bolder;
+    font-size: larger;
 }
 
 #inputs{
