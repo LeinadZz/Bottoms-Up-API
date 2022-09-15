@@ -1,9 +1,10 @@
 :root {
     --main-color: #424f64;
+    --header\footer-color: rgb(234, 201, 10)
 }
 
 header {
-    background-color: #aebe41;
+    background-color: var(--header\footer-color);
     border-bottom: #000;
     border-style: solid;
 }
@@ -33,7 +34,7 @@ header {
 }
 
 #submit {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .hero {
@@ -46,18 +47,28 @@ header {
 }
 
 .footer {
+    background-color: var(--header\footer-color);
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
 }
 
+.footer h2 {
+    font-weight: bolder;
+    font-size: larger;
+}
+
 #inputs{
-    display:flex;
+    display: flex;
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: right;
     align-content: center;
+}
+
+input {
+    margin: 8px 0px;
 }
 
 #input-form{
