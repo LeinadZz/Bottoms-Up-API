@@ -34,7 +34,7 @@ header {
 }
 
 #submit {
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .hero {
@@ -60,11 +60,15 @@ header {
 }
 
 #inputs{
-    display:flex;
+    display: flex;
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: right;
     align-content: center;
+}
+
+input {
+    margin: 8px 0px;
 }
 
 #input-form{
