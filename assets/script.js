@@ -4,23 +4,40 @@ $(document).ready(function () {
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
 	
-		var userLocation = $('#input-location').val().trim();
+		var userLocation = $('#input-location').val().trim().split(" ").join("_");
 		var userRadius = $('#input-radius').val().trim();
 	  
-		  localStorage.setItem("Location", JSON.stringify(userLocation));
+		// fix the URL injection setup here?
+		localStorage.setItem("Location", JSON.stringify(userLocation));
 		localStorage.setItem("Radius", JSON.stringify(userRadius));
+	
+		getResult();
 		});
 	});
 	
 	// Breweries API
-	fetch('https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3')
-		.then(response => response.json())
-		.then(response => console.log(response))
+	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
+
+	// TODO: fix the location injection in the URL
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + localStorage.getItem("Location") + "&per_page=3"
+	console.log(breweryURL);
+	
+function getResult(){fetch(breweryURL)
+		.then(function (response) {
+			return response.json();
+	  	})
+		.then(function (data){
+			console.log(data);
+			for(let i = 0; i < 3; i++){
+				console.log(data[i].name + " located at " + data[i].latitude + ", " + data[i].longitude)
+			}
+		})
 		.catch(err => console.error(err));
+}
 	
 	// initialized variables for use later
-	var longitude = '0.0'
-	var latitude = '0.0'
+	var long = '0.0'
+	var lat = '0.0'
 	
 	
 	// Google Maps API
