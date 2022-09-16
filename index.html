@@ -23,11 +23,18 @@
         <section id="inputs" class="column is-one-fifth">
             <form id="input-form">
 
-                <label for="location">City:</label>
-                <input type="text" id="input-location" name="location" placeholder="city name"><br>
+                <label for="location">Postal Code:</label>
+                <input type="text" id="input-location" name="location" placeholder="90210"><br>
 
-                <label for="radius">Radius:</label>
-                <input type="text" id="input-radius" name="radius" placeholder="miles"><br>
+                <label for="type">Brewery Size:</label>
+                <select name="type" id="input-type">
+                    <option value="any">Any</option>
+                    <option value="micro">Micro-brewery</option>
+                    <option value="nano">Nano-brewery</option>
+                    <option value="regional">Regional</option>
+                    <option value="brewpub">Brewpub</option>
+                </select>
+                <br>
 
                 <button class="button is-info is-rounded" id="submit-btn">Submit</button>
 
