@@ -21,7 +21,7 @@ $(document).ready(function () {
 	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
 
 	// TODO: fix the location injection in the URL
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) +"&per_page=3"
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=3"
 	console.log(breweryURL);
 	
 function getResult(){fetch(breweryURL)
