@@ -80,3 +80,76 @@ input {
     display:block;
     padding:5px;
 }
+
+@media screen and (max-width: 1096px) {
+    .hero {
+        height: 300px;
+    }
+    #motto {
+        display:none;
+    }
+    
+}
+
+@media screen and (max-width: 992px) {
+    .hero {
+        height: 300px;
+    }
+  }
+
+  
+  @media screen and (max-width: 810px) {
+    .hero {
+        height: 250px;
+    }
+    #logo {
+        float: center;
+        width: 20%;
+        
+    }
+    #name,#motto {
+        display: none;
+    }
+
+  }
+  
+
+  @media screen and (max-width: 576px) {
+    .hero {
+        height: 200px; 
+    }
+    #name,#motto {
+        display: none;
+    
+    }
+    #logo {
+        float: left;
+        width: 20%;
+       
+    }
+    
+    header {
+        height: 150px;
+    }
+  }
+
+  
+  @media screen and (max-width:565px) {
+    .hero {
+        height: 150px;
+    }
+    #name,#motto {
+        display: none;
+    }
+    #logo {
+        float:left;
+        width: 20%;
+    }
+    #results {
+        display: flex;
+    }
+    header {
+        height: 150px;
+    }
+  }
+
