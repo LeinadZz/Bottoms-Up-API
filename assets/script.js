@@ -1,6 +1,13 @@
 let locationInput = localStorage.getItem("Location");
 var tableBody = document.getElementById('repo-table');
 
+var contentCard = document.getElementsByClassName('card-content');
+
+
+console.log(locationInput);
+
+
+
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
 	
@@ -28,6 +35,7 @@ $("#input-type").onchange = function(event){
 // example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
 
 
+
 let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&"
 
 
@@ -38,26 +46,30 @@ breweryURL += "&per_page=5"
 console.log(breweryURL)
 	
 function getResult(){fetch(breweryURL)
-	.then(function (response) {
-		return response.json();
-	})
-	.then(function (data){
-		console.log(data);
-		for(let i = 0; i < 20; i++){
-			var createTableRow = document.createElement('tr');
-       		var tableData = document.createElement('td');
-			var websiteUrl = document.createElement('a');
+		.then(function (response) {
+			return response.json();
+	  	})
+		.then(function (data){
+			console.log(data);
+			for(let i = 1; i < 20; i++){
+				var createTableRow = document.createElement('tr');
+       			var tableData = document.createElement('td');
+				var websiteUrl = document.createElement('a');
+				var phoneNumber = document.createElement('td');
+				$()
 
-        	tableData.textContent = data[i].name;
-			websiteUrl.textContent = data[i].website_Url;
-			websiteUrl.href = data[i].website_Url;
+        		tableData.textContent = `${i} ${data[i].name}`;
+				websiteUrl.textContent = data[i].website_url;
+				websiteUrl.href = data[i].website_url;
+				phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
 
-
-        	createTableRow.appendChild(tableData);
-        	tableBody.appendChild(createTableRow);
-		}
-	})
-	.catch(err => console.error(err));
+        		createTableRow.appendChild(tableData);
+        		tableBody.appendChild(createTableRow);
+				tableBody.appendChild(websiteUrl);
+				tableBody.appendChild(phoneNumber);
+			}
+		})
+		.catch(err => console.error(err));
 }
 	
 	// initialized variables for use later
@@ -65,7 +77,7 @@ function getResult(){fetch(breweryURL)
 	// var lat = '0.0'
 	
 	
-	/* Google Maps API
+	//Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
@@ -80,4 +92,4 @@ function getResult(){fetch(breweryURL)
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
 	
-	*/
+	
