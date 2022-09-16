@@ -1,6 +1,13 @@
 let locationInput = localStorage.getItem("Location");
 var tableBody = document.getElementById('repo-table');
 
+var contentCard = document.getElementsByClassName('card-content');
+
+
+console.log(locationInput);
+
+
+
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
 	$("#submit-btn").on("click", function(event) {
@@ -19,8 +26,14 @@ $(document).ready(function () {
 	// Breweries API
 	// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
 
-	// TODO: add IF statement to check if "any" is selected. if it is, don't add "by_type" to the url
+
+
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=10"
+	console.log(breweryURL);
+
+
 	let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=5"
+
 	
 function getResult(){fetch(breweryURL)
 		.then(function (response) {
@@ -28,18 +41,22 @@ function getResult(){fetch(breweryURL)
 	  	})
 		.then(function (data){
 			console.log(data);
-			for(let i = 0; i < 20; i++){
+			for(let i = 1; i < 20; i++){
 				var createTableRow = document.createElement('tr');
        			var tableData = document.createElement('td');
 				var websiteUrl = document.createElement('a');
+				var phoneNumber = document.createElement('td');
+				$()
 
-        		tableData.textContent = data[i].name;
-				websiteUrl.textContent = data[i].website_Url;
-				websiteUrl.href = data[i].website_Url;
-
+        		tableData.textContent = `${i} ${data[i].name}`;
+				websiteUrl.textContent = data[i].website_url;
+				websiteUrl.href = data[i].website_url;
+				phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
 
         		createTableRow.appendChild(tableData);
         		tableBody.appendChild(createTableRow);
+				tableBody.appendChild(websiteUrl);
+				tableBody.appendChild(phoneNumber);
 			}
 		})
 		.catch(err => console.error(err));
@@ -50,7 +67,7 @@ function getResult(){fetch(breweryURL)
 	// var lat = '0.0'
 	
 	
-	/* Google Maps API
+	//Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
@@ -65,4 +82,4 @@ function getResult(){fetch(breweryURL)
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
 	
-	*/
+	
