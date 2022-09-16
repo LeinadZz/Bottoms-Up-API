@@ -1,4 +1,5 @@
-
+let locationInput = localStorage.getItem("Location");
+console.log(locationInput);
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
 	$("#submit-btn").on("click", function(event) {
@@ -19,7 +20,7 @@ $(document).ready(function () {
 	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
 
 	// TODO: fix the location injection in the URL
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + localStorage.getItem("Location") + "&per_page=3"
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + locationInput.replace(/['"]+/g, '') +"&per_page=3"
 	console.log(breweryURL);
 	
 function getResult(){fetch(breweryURL)
@@ -40,7 +41,7 @@ function getResult(){fetch(breweryURL)
 	var lat = '0.0'
 	
 	
-	// Google Maps API
+	/* Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
@@ -55,4 +56,4 @@ function getResult(){fetch(breweryURL)
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
 	
-	
+	*/
