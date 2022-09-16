@@ -52,7 +52,7 @@ function getResult(){fetch(breweryURL)
 	var lat = '0.0'
 	
 	
-	/* Google Maps API
+	// Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
@@ -62,9 +62,8 @@ function getResult(){fetch(breweryURL)
 	};
 	
 	// Example URL/Query
-	fetch('https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query=White%20House&region=en&language=en', options2)
-		.then(response => response.json())
-		.then(response => console.log(response))
-		.catch(err => console.error(err));
+	fetch('https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query=' + JSON.parse(localStorage.getItem("Location")) +  '&region=en&language=en', options2)
+	.then(response => response.json())
+	.then(response => console.log(response))
+	.catch(err => console.error(err));
 	
-	*/
