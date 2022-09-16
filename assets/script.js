@@ -10,30 +10,40 @@ console.log(locationInput);
 
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
+	
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
 	
 		var userLocation = $('#input-location').val().trim().split(" ").join("_");
-		var userType = $('#input-type').val().trim();
 	  
 		localStorage.setItem("Location", JSON.stringify(userLocation));
-		localStorage.setItem("Type", JSON.stringify(userType));
+
 	
 		getResult();
-		});
 	});
+});
+
+// TODO: fix functionality. should update value of dropdown selection to localstorage every time the dropdown is changed
+$("#input-type").onchange = function(event){
+	event.preventDefault();
+	var userType = $('#input-type')
+	localStorage.setItem("Type", JSON.stringify(userType));
+
+}
 	
-	// Breweries API
-	// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
+// Breweries API
+// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
 
 
 
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=10"
-	console.log(breweryURL);
+let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&"
 
 
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=5"
-
+if(localStorage.getItem("Type")!="any"){
+	breweryURL += JSON.parse(localStorage.getItem("Type"))
+}
+breweryURL += "&per_page=5"
+console.log(breweryURL)
 	
 function getResult(){fetch(breweryURL)
 		.then(function (response) {
