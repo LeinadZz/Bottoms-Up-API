@@ -1,26 +1,49 @@
+let locationInput = localStorage.getItem("Location");
+var tableBody = document.getElementById('repo-table');
+
+var contentCard = document.getElementsByClassName('card-content');
+
+
+console.log(locationInput);
+
+
 
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
+	
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
 	
 		var userLocation = $('#input-location').val().trim().split(" ").join("_");
-		var userRadius = $('#input-radius').val().trim();
 	  
-		// fix the URL injection setup here?
 		localStorage.setItem("Location", JSON.stringify(userLocation));
-		localStorage.setItem("Radius", JSON.stringify(userRadius));
+
 	
 		getResult();
-		});
 	});
-	
-	// Breweries API
-	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
+});
 
-	// TODO: fix the location injection in the URL
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + localStorage.getItem("Location") + "&per_page=3"
-	console.log(breweryURL);
+// TODO: fix functionality. should update value of dropdown selection to localstorage every time the dropdown is changed
+$("#input-type").onchange = function(event){
+	event.preventDefault();
+	var userType = $('#input-type')
+	localStorage.setItem("Type", JSON.stringify(userType));
+
+}
+	
+// Breweries API
+// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
+
+
+
+let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&"
+
+
+if(localStorage.getItem("Type")!="any"){
+	breweryURL += JSON.parse(localStorage.getItem("Type"))
+}
+breweryURL += "&per_page=5"
+console.log(breweryURL)
 	
 function getResult(){fetch(breweryURL)
 		.then(function (response) {
@@ -28,19 +51,33 @@ function getResult(){fetch(breweryURL)
 	  	})
 		.then(function (data){
 			console.log(data);
-			for(let i = 0; i < 3; i++){
-				console.log(data[i].name + " located at " + data[i].latitude + ", " + data[i].longitude)
+			for(let i = 1; i < 20; i++){
+				var createTableRow = document.createElement('tr');
+       			var tableData = document.createElement('td');
+				var websiteUrl = document.createElement('a');
+				var phoneNumber = document.createElement('td');
+				$()
+
+        		tableData.textContent = `${i} ${data[i].name}`;
+				websiteUrl.textContent = data[i].website_url;
+				websiteUrl.href = data[i].website_url;
+				phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
+
+        		createTableRow.appendChild(tableData);
+        		tableBody.appendChild(createTableRow);
+				tableBody.appendChild(websiteUrl);
+				tableBody.appendChild(phoneNumber);
 			}
 		})
 		.catch(err => console.error(err));
 }
 	
 	// initialized variables for use later
-	var long = '0.0'
-	var lat = '0.0'
+	// var long = '0.0'
+	// var lat = '0.0'
 	
 	
-	// Google Maps API
+	//Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
