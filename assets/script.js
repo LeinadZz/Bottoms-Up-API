@@ -1,4 +1,5 @@
 let locationInput = localStorage.getItem("Location");
+var tableBody = document.getElementById('repo-table');
 console.log(locationInput);
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
@@ -20,7 +21,7 @@ $(document).ready(function () {
 	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
 
 	// TODO: fix the location injection in the URL
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + locationInput.replace(/['"]+/g, '') +"&per_page=3"
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) +"&per_page=10"
 	console.log(breweryURL);
 	
 function getResult(){fetch(breweryURL)
@@ -29,8 +30,18 @@ function getResult(){fetch(breweryURL)
 	  	})
 		.then(function (data){
 			console.log(data);
-			for(let i = 0; i < 3; i++){
-				console.log(data[i].name + " located at " + data[i].latitude + ", " + data[i].longitude)
+			for(let i = 0; i < 20; i++){
+				var createTableRow = document.createElement('tr');
+       			var tableData = document.createElement('td');
+				var websiteUrl = document.createElement('a');
+
+        		tableData.textContent = data[i].name;
+				websiteUrl.textContent = data[i].website_Url;
+				websiteUrl.href = data[i].website_Url;
+
+
+        		createTableRow.appendChild(tableData);
+        		tableBody.appendChild(createTableRow);
 			}
 		})
 		.catch(err => console.error(err));
