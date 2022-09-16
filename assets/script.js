@@ -3,10 +3,8 @@ var tableBody = document.getElementById('repo-table');
 
 var contentCard = document.getElementsByClassName('card-content');
 
-
-console.log(locationInput);
-
-
+//TODO: figure out why localstorage is saving data through refreshes
+// it isn't being saved when the submit button is being clicked
 
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
@@ -42,7 +40,7 @@ let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.par
 if(localStorage.getItem("Type")!="any"){
 	breweryURL += JSON.parse(localStorage.getItem("Type"))
 }
-breweryURL += "&per_page=5"
+breweryURL += "&per_page=20"
 console.log(breweryURL)
 	
 function getResult(){fetch(breweryURL)
@@ -51,14 +49,14 @@ function getResult(){fetch(breweryURL)
 	  	})
 		.then(function (data){
 			console.log(data);
-			for(let i = 1; i < 20; i++){
+			for(let i = 0; i < data.length-1; i++){
 				var createTableRow = document.createElement('tr');
        			var tableData = document.createElement('td');
 				var websiteUrl = document.createElement('a');
 				var phoneNumber = document.createElement('td');
 				$()
 
-        		tableData.textContent = `${i} ${data[i].name}`;
+        		tableData.textContent = `${i+1} ${data[i].name}`;
 				websiteUrl.textContent = data[i].website_url;
 				websiteUrl.href = data[i].website_url;
 				phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
