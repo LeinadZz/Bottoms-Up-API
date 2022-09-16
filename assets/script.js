@@ -3,46 +3,61 @@ var tableBody = document.getElementById('repo-table');
 
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
+	
 	$("#submit-btn").on("click", function(event) {
 		event.preventDefault();
 	
 		var userLocation = $('#input-location').val().trim().split(" ").join("_");
-		var userType = $('#input-type').val().trim();
 	  
 		localStorage.setItem("Location", JSON.stringify(userLocation));
-		localStorage.setItem("Type", JSON.stringify(userType));
+
 	
 		getResult();
-		});
 	});
-	
-	// Breweries API
-	// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
+});
 
-	// TODO: add IF statement to check if "any" is selected. if it is, don't add "by_type" to the url
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=5"
+// TODO: fix functionality. should update value of dropdown selection to localstorage every time the dropdown is changed
+$("#input-type").onchange = function(event){
+	event.preventDefault();
+	var userType = $('#input-type')
+	localStorage.setItem("Type", JSON.stringify(userType));
+
+}
+	
+// Breweries API
+// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
+
+
+let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&"
+
+
+if(localStorage.getItem("Type")!="any"){
+	breweryURL += JSON.parse(localStorage.getItem("Type"))
+}
+breweryURL += "&per_page=5"
+console.log(breweryURL)
 	
 function getResult(){fetch(breweryURL)
-		.then(function (response) {
-			return response.json();
-	  	})
-		.then(function (data){
-			console.log(data);
-			for(let i = 0; i < 20; i++){
-				var createTableRow = document.createElement('tr');
-       			var tableData = document.createElement('td');
-				var websiteUrl = document.createElement('a');
+	.then(function (response) {
+		return response.json();
+	})
+	.then(function (data){
+		console.log(data);
+		for(let i = 0; i < 20; i++){
+			var createTableRow = document.createElement('tr');
+       		var tableData = document.createElement('td');
+			var websiteUrl = document.createElement('a');
 
-        		tableData.textContent = data[i].name;
-				websiteUrl.textContent = data[i].website_Url;
-				websiteUrl.href = data[i].website_Url;
+        	tableData.textContent = data[i].name;
+			websiteUrl.textContent = data[i].website_Url;
+			websiteUrl.href = data[i].website_Url;
 
 
-        		createTableRow.appendChild(tableData);
-        		tableBody.appendChild(createTableRow);
-			}
-		})
-		.catch(err => console.error(err));
+        	createTableRow.appendChild(tableData);
+        	tableBody.appendChild(createTableRow);
+		}
+	})
+	.catch(err => console.error(err));
 }
 	
 	// initialized variables for use later
