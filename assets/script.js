@@ -1,9 +1,6 @@
 let locationInput = localStorage.getItem("Location");
 var tableBody = document.getElementById('repo-table');
-var contentCard = document.getElementsByClassName('card-content');
 
-
-console.log(locationInput);
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
 	$("#submit-btn").on("click", function(event) {
@@ -12,7 +9,6 @@ $(document).ready(function () {
 		var userLocation = $('#input-location').val().trim().split(" ").join("_");
 		var userRadius = $('#input-radius').val().trim();
 	  
-		// fix the URL injection setup here?
 		localStorage.setItem("Location", JSON.stringify(userLocation));
 		localStorage.setItem("Radius", JSON.stringify(userRadius));
 	
@@ -21,10 +17,10 @@ $(document).ready(function () {
 	});
 	
 	// Breweries API
-	// example URL = "https://api.openbrewerydb.org/breweries?by_city=san_diego&per_page=3"
+	// example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
 
 	// TODO: fix the location injection in the URL
-	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Location")) + "&per_page=10"
+	let breweryURL = "https://api.openbrewerydb.org/breweries?by_city=" + JSON.parse(localStorage.getItem("Radius")) + "&per_page=3"
 	console.log(breweryURL);
 	
 function getResult(){fetch(breweryURL)
@@ -37,8 +33,6 @@ function getResult(){fetch(breweryURL)
 				var createTableRow = document.createElement('tr');
        			var tableData = document.createElement('td');
 				var websiteUrl = document.createElement('a');
-				var phoneNumber = document.createElement('td');
-				$()
 
         		tableData.textContent = `${i} ${data[i].name}`;
 				websiteUrl.textContent = data[i].website_url;
@@ -55,8 +49,8 @@ function getResult(){fetch(breweryURL)
 }
 	
 	// initialized variables for use later
-	var long = '0.0'
-	var lat = '0.0'
+	// var long = '0.0'
+	// var lat = '0.0'
 	
 	
 	//Google Maps API
