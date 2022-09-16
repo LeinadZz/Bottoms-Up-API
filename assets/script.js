@@ -1,4 +1,6 @@
-
+let locationInput = localStorage.getItem("Location");
+var tableBody = document.getElementById('repo-table');
+console.log(locationInput);
 //event handler for saving user-input upon hitting submit
 $(document).ready(function () {
 	$("#submit-btn").on("click", function(event) {
@@ -28,8 +30,18 @@ function getResult(){fetch(breweryURL)
 	  	})
 		.then(function (data){
 			console.log(data);
-			for(let i = 0; i < 3; i++){
-				console.log(data[i].name + " located at " + data[i].latitude + ", " + data[i].longitude)
+			for(let i = 0; i < 20; i++){
+				var createTableRow = document.createElement('tr');
+       			var tableData = document.createElement('td');
+				var websiteUrl = document.createElement('a');
+
+        		tableData.textContent = data[i].name;
+				websiteUrl.textContent = data[i].website_Url;
+				websiteUrl.href = data[i].website_Url;
+
+
+        		createTableRow.appendChild(tableData);
+        		tableBody.appendChild(createTableRow);
 			}
 		})
 		.catch(err => console.error(err));
@@ -40,7 +52,7 @@ function getResult(){fetch(breweryURL)
 	var lat = '0.0'
 	
 	
-	// Google Maps API
+	/* Google Maps API
 	const options2 = {
 		method: 'GET',
 		headers: {
@@ -55,4 +67,4 @@ function getResult(){fetch(breweryURL)
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
 	
-	
+	*/
