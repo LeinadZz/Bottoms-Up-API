@@ -83,6 +83,14 @@ input {
     padding:5px;
 }
 
+#msg {
+    visibility: hidden;
+    margin-top: 20px;
+    font-weight: 700;
+    height: 1.2em;
+    font-size: 1.2em;
+  }
+
 @media screen and (max-width: 1096px) {
     .hero {
         height: 300px;
