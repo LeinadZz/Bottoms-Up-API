@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <script src="https://kit.fontawesome.com/0ec2cbb829.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="./assets/style.css" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+     <!--Google Font Developer API Preconnect Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!--Google Font Developer API - Titan Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet"/>
+
+     <!--Google Font Developer API - Pacifico Font Family-->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+
+    <!--Bulma CSS Framework-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
+  
+    <!--CSS stylesheet link-->
+    <link href="./assets/css/style.css" rel="stylesheet" />
+
     <title>Bottoms Up</title>
-</head>
-<body>
+  </head>
+
+  <body>
+
     <header>
-        <img src="./assets/beer-mug.png" alt="beer mug" width="100" height="100">
-        <h1 class="title is-1" id="name">BOTTOMS UP</h1>
-        <h2 class="subtitle is-2" id="motto">"Beer worth Finding"</h2>
+      <img src="./assets/images/beer-mug.png" alt="beer mug" width="100" height="100"/>
+      <h1 class="title is-1" id="name">BOTTOMS UP</h1>
+      <h2 class="subtitle is-2" id="motto">"Beer worth Finding"</h2>
     </header>
+
     <div class="hero"></div>
     <main class="columns">
-        <section id="inputs" class="column is-one-fifth">
-            <form id="input-form">
+      <section id="inputs" class="column is-one-fifth">
+        <form id="input-form">
+          <label for="location">Postal Code:</label>
+             <input type="text" id="input-location" name="location" placeholder="90210"/><br />
 
-                <label for="location">Postal Code:</label>
-                <input type="text" id="input-location" name="location" placeholder="90210"><br>
+          <label for="type">Brewery Size:</label>
+          <select name="type" id="input-type">
+            <option value="any">Any</option>
+            <option value="micro">Micro-Brewery</option>
+            <option value="nano">Nano-Brewery</option>
+            <option value="regional">Regional</option>
+            <option value="brewpub">Brewpub</option>
+            <option value="large">Large</option>
+            <option value="planning">Planning</option>
+            <option value="bar">Bar</option>
+            <option value="contract">Contract</option>
+            <option value="proprietor">Proprietor</option>
+            <option value="closed">Closed</option>
+          </select>
+          <br />
 
-                <label for="type">Brewery Size:</label>
-                <select name="type" id="input-type">
-                    <option value="any">Any</option>
-                    <option value="micro">Micro-brewery</option>
-                    <option value="nano">Nano-brewery</option>
-                    <option value="regional">Regional</option>
-                    <option value="brewpub">Brewpub</option>
-                </select>
-                <br>
+          <button class="button is-info is-rounded" id="clear-btn">Clear</button>
+          <button class="button is-info is-rounded" id="submit-btn">Submit</button>
+        </form>
+      </section>
 
-                <button class="button is-info is-rounded" id="submit-btn">Submit</button>
+      <section id="results" class="column is-one-fifth">
+        <table>
+          <th>
+            <p>Results</p>
+          </th>
+          <tbody id="repo-table" class="mx-auto text-center"></tbody>
+        </table>
+        <button class="button is-info is-rounded">Prev</button>
+        <button class="button is-info is-rounded">Next</button>
+      </section>
 
-            </form>
-
-
-
-        </section>
-
-        <section id="results" class="column is-one-fifth">
-            <table>
-                <th>
-                  <p>Results</p>
-                </th>
-                <tbody id="repo-table" class="mx-auto text-center"></tbody>
-              </table>
-            <button class="button is-info is-rounded">Prev</button>
-            <button class="button is-info is-rounded">Next</button>
-        </section>
-
-        <section id="map" class="column is-three-fifths">
-        
-        </section>
-        
+      <section id="map" class="column is-three-fifths"></section>
     </main>
 
-
     <footer class="footer">
-        <h2>Made for your taste buds ❤️</h2>
+      <h2>Made for your taste buds ❤️</h2>
     </footer>
 
+    <!--jQuery and Javascript logic links-->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="./assets/script.js"></script>
-    
-</body>
+    <script src="./assets/js/script.js"></script>
+  </body>
 </html>
