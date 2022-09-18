@@ -38,6 +38,9 @@ $("#input-type").onchange = function(event){
 
 let breweryURL = "https://api.openbrewerydb.org/breweries?by_postal=" + JSON.parse(localStorage.getItem("Location")) + "&"
 
+//let breweryURL2 = "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+ googleNames.replace(/['"]+/g, '') +"&region=en&language=en"
+
+//let googleNames = document.getElementsByClassName("#google");
 
 if(localStorage.getItem("Type")!="any"){
 	breweryURL += JSON.parse(localStorage.getItem("Type"))
@@ -54,9 +57,9 @@ function getResult(){fetch(breweryURL)
 			for(let i = 1; i < 20; i++){
 				var createTableRow = document.createElement('tr');
        			var tableData = document.createElement('td');
+				tableData.classList.add('google');
 				var websiteUrl = document.createElement('a');
 				var phoneNumber = document.createElement('td');
-				$()
 
         		tableData.textContent = `${i} ${data[i].name}`;
 				websiteUrl.textContent = data[i].website_url;
@@ -68,7 +71,21 @@ function getResult(){fetch(breweryURL)
 				tableBody.appendChild(websiteUrl);
 				tableBody.appendChild(phoneNumber);
 			}
+		Promise.then(function getResult2(){fetch(breweryURL2)
+		.then(function (response2) {
+			return response2.json();
 		})
+		.then(function (data2){
+			console.log(data2);
+			for(let i = 1; i < 20; i++){
+			let breweryURL2 = "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+ googleNames.replace(/['"]+/g, '') +"&region=en&language=en"
+
+			let googleNames = document.getElementsByClassName("#google");
+			console.log(data2)
+			}
+		})
+	})
+})
 		.catch(err => console.error(err));
 }
 	
@@ -78,7 +95,7 @@ function getResult(){fetch(breweryURL)
 	
 	
 	//Google Maps API
-	const options2 = {
+	const options = {
 		method: 'GET',
 		headers: {
 			'X-RapidAPI-Key': '48c1efcdf0mshbc4f579e09271eep1736d1jsn77c5309cc348',
@@ -86,10 +103,7 @@ function getResult(){fetch(breweryURL)
 		}
 	};
 	
-	// Example URL/Query
-	fetch('https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query=White%20House&region=en&language=en', options2)
+	fetch('https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query=bear%20republic&region=en&language=en', options)
 		.then(response => response.json())
 		.then(response => console.log(response))
 		.catch(err => console.error(err));
-	
-	
