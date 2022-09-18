@@ -43,7 +43,7 @@ function getResult() {
       "&by_type=" +
       JSON.parse(localStorage.getItem("Type"));
   }
-  console.log(breweryURL);
+
   fetch(breweryURL)
     .then(function (response) {
       return response.json();
@@ -56,19 +56,35 @@ function getResult() {
         var websiteUrl = document.createElement("a");
         var phoneNumber = document.createElement("td");
         var lineBreak = document.createElement("br");
-        $();
+        var streetName = document.createElement("td");
+        var directions = document.createElement("a");
+        var googleNames = data[i].name;
+        var latitude = data[i].latitude;
+        var longitude = data[i].longitude;
 
         tableData.textContent = `${i + 1} ${data[i].name}`;
         websiteUrl.textContent = data[i].website_url;
         websiteUrl.href = data[i].website_url;
         phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
-
+        streetName.textContent = data[i].street;
+        // TODO: Index through object/array to get html_attribute
+        //directions.textContent = 
+        
         createTableRow.appendChild(tableData);
         tableBody.appendChild(createTableRow);
         tableData.appendChild(lineBreak);
         tableData.appendChild(websiteUrl);
         tableBody.appendChild(phoneNumber);
+        tableData.appendChild(streetName);
         createTableRow.appendChild(phoneNumber);
+
+        fetch(
+          "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+googleNames+"&location="+latitude+"%2C"+longitude+"&region=en&language=en",
+          options2
+        )
+          .then((response) => response.json())
+          .then((response) => console.log(response))
+          .catch((err) => console.error(err));
       }
     })
     .catch((err) => console.error(err));
@@ -87,11 +103,12 @@ const options2 = {
   },
 };
 
-// Example URL/Query
+/* Example URL/Query
 fetch(
-  "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query=White%20House&region=en&language=en",
+  "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+googleNames+"&region=en&language=en",
   options2
 )
   .then((response) => response.json())
   .then((response) => console.log(response))
   .catch((err) => console.error(err));
+*/
