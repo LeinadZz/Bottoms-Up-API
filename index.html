@@ -34,7 +34,9 @@
     <div class="hero"></div>
     <main class="columns">
       <section id="inputs" class="column is-one-fifth">
-        <form id="input-form">
+        <h2 class="filters">Filters</h2>
+        <br/>
+        <form class="form" id="input-form">
           <label for="location">Postal Code:</label>
              <input type="text" id="input-location" name="location" placeholder="90210"/><br />
 
@@ -60,14 +62,10 @@
       </section>
 
       <section id="results" class="column is-one-fifth">
+        <h2>Results</h2>
         <table>
-          <th>
-            <p>Results</p>
-          </th>
           <tbody id="repo-table" class="mx-auto text-center"></tbody>
         </table>
-        <button class="button is-info is-rounded">Prev</button>
-        <button class="button is-info is-rounded">Next</button>
       </section>
 
       <section id="map" class="column is-three-fifths"></section>

@@ -55,6 +55,7 @@ function getResult() {
         var tableData = document.createElement("td");
         var websiteUrl = document.createElement("a");
         var phoneNumber = document.createElement("td");
+        var lineBreak = document.createElement("br");
         $();
 
         tableData.textContent = `${i + 1} ${data[i].name}`;
@@ -64,8 +65,10 @@ function getResult() {
 
         createTableRow.appendChild(tableData);
         tableBody.appendChild(createTableRow);
-        tableBody.appendChild(websiteUrl);
+        tableData.appendChild(lineBreak);
+        tableData.appendChild(websiteUrl);
         tableBody.appendChild(phoneNumber);
+        createTableRow.appendChild(phoneNumber);
       }
     })
     .catch((err) => console.error(err));
