@@ -13,6 +13,16 @@ header img {
     margin-top: 25px;
     margin-right: 10px;
 }
+
+.filters{
+    position: absolute;
+}
+
+.form{
+    position: relative;
+    margin-top: 25px;
+}
+
 #name {
     display: inline-flex;
     color: #f5f5ec;
@@ -21,12 +31,14 @@ header img {
     font-size: 100px;
     margin-bottom: 50px;
 }
+
 #motto {
     display: inline-flex;
     color: #000000;
     font-family: sans-serif;
     font-size: 25px;
     padding-left: 50px;
+    font-family: 'Pacifico',cursive;
 }
 
 #logo {
@@ -79,6 +91,16 @@ input {
 #input-form{
     display:block;
     padding:5px;
+}
+
+#clear-btn, #submit-btn {
+    margin-top: 8px;
+}
+
+ table, td {
+     background-color: rgba(255, 226, 171, 0.896);
+     padding: 10px;
+     border: 2px solid;
 }
 
 @media screen and (max-width: 1096px) {
