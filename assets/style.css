@@ -13,6 +13,11 @@ header img {
     margin-top: 25px;
     margin-right: 10px;
 }
+
+body {
+    background-color: #efefef;
+}
+
 #name {
     display: inline-flex;
     color: #f5f5ec;
@@ -21,6 +26,7 @@ header img {
     font-size: 100px;
     margin-bottom: 50px;
 }
+
 #motto {
     display: inline-flex;
     color: #000000;
@@ -41,7 +47,7 @@ header img {
 }
 
 #submit {
-    margin-top: 25px;
+    margin-top: 25px;  
 }
 
 .hero {
@@ -59,11 +65,22 @@ header img {
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    border-top: #000000;
+    border-style: solid;
 }
 
 .footer h2 {
     font-weight: bolder;
     font-size: larger;
+}
+
+a {
+    color: #000;
+
+}
+
+#about_sec :hover{
+    color: gray;
 }
 
 #inputs{
