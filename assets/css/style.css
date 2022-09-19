@@ -14,13 +14,8 @@ header img {
     margin-right: 10px;
 }
 
-.filters{
-    position: absolute;
-}
-
-.form{
-    position: relative;
-    margin-top: 25px;
+body {
+    background-color: #efefef;
 }
 
 #name {
@@ -51,7 +46,7 @@ header img {
 }
 
 #submit {
-    margin-top: 25px;
+    margin-top: 25px;  
 }
 
 .hero {
@@ -69,11 +64,22 @@ header img {
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    border-top: #000000;
+    border-style: solid;
 }
 
 .footer h2 {
     font-weight: bolder;
     font-size: larger;
+}
+
+a {
+    color: #000;
+
+}
+
+#about_sec :hover{
+    color: gray;
 }
 
 #inputs{
