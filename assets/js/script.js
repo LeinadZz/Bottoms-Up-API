@@ -1,5 +1,12 @@
 var tableBody = document.getElementById("repo-table");
 var contentCard = document.getElementsByClassName("card-content");
+const options2 = {
+  method: "GET",
+  headers: {
+  "X-RapidAPI-Key": "e71dc4f159mshf0a7f2ba40a213fp1e4151jsn78daa4f97ba6",
+  "X-RapidAPI-Host": "google-maps28.p.rapidapi.com",
+  },
+ };
 
 // Breweries API
 // example URL = "https://api.openbrewerydb.org/breweries?by_postal=44107&per_page=5"
@@ -56,8 +63,7 @@ function getResult() {
         var websiteUrl = document.createElement("a");
         var phoneNumber = document.createElement("td");
         var lineBreak = document.createElement("br");
-        var streetName = document.createElement("td");
-        var directions = document.createElement("a");
+       // var streetName = document.createElement("td");
         var googleNames = data[i].name;
         var latitude = data[i].latitude;
         var longitude = data[i].longitude;
@@ -66,49 +72,38 @@ function getResult() {
         websiteUrl.textContent = data[i].website_url;
         websiteUrl.href = data[i].website_url;
         phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
-        streetName.textContent = data[i].street;
-        // TODO: Index through object/array to get html_attribute
-        //directions.textContent = 
+        //streetName.textContent = data[i].street;
         
         createTableRow.appendChild(tableData);
         tableBody.appendChild(createTableRow);
         tableData.appendChild(lineBreak);
         tableData.appendChild(websiteUrl);
         tableBody.appendChild(phoneNumber);
-        tableData.appendChild(streetName);
+        //tableData.appendChild(streetName);
         createTableRow.appendChild(phoneNumber);
 
         fetch(
           "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+googleNames+"&location="+latitude+"%2C"+longitude+"&region=en&language=en",
           options2
         )
-          .then((response) => response.json())
-          .then((response) => console.log(response))
-          .catch((err) => console.error(err));
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (data2) {
+          console.log(data2);
+          for (let j = 0; j < data.length; j++) {
+            console.log(data2.results[0].rating)
+
+            var placeRating = document.createElement("td");
+
+            placeRating.textContent = `Rating: ${data2.results[j].rating}`;
+
+            tableData.appendChild(placeRating);
+            
+          }
+          
       }
-    })
+    )}
+  })
     .catch((err) => console.error(err));
 }
-
-// initialized variables for use later
-// var long = '0.0'
-// var lat = '0.0'
-
-//Google Maps API
-const options2 = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": "48c1efcdf0mshbc4f579e09271eep1736d1jsn77c5309cc348",
-    "X-RapidAPI-Host": "google-maps28.p.rapidapi.com",
-  },
-};
-
-/* Example URL/Query
-fetch(
-  "https://google-maps28.p.rapidapi.com/maps/api/place/textsearch/json?query="+googleNames+"&region=en&language=en",
-  options2
-)
-  .then((response) => response.json())
-  .then((response) => console.log(response))
-  .catch((err) => console.error(err));
-*/
