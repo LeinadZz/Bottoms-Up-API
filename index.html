@@ -5,18 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-     <!--Google Font Developer API Preconnect Link-->
+    <!--Google Font Developer API Preconnect Link-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
 
     <!--Google Font Developer API - Titan Font Family-->
-    <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap"
+      rel="stylesheet"
+    />
 
-     <!--Google Font Developer API - Pacifico Font Family-->
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet"/>
+    <!--Google Font Developer API - Pacifico Font Family-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
 
     <!--Bulma CSS Framework-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"/>
-  
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+
     <!--CSS stylesheet link-->
     <link href="./assets/css/style.css" rel="stylesheet" />
 
@@ -24,21 +33,36 @@
   </head>
 
   <body>
-
+    <!--Header-->
     <header>
-      <img src="./assets/images/beer-mug.png" alt="beer mug" width="100" height="100"/>
+      <img
+        src="./assets/images/beer-mug.png"
+        alt="beer mug"
+        width="100"
+        height="100"
+      />
       <h1 class="title is-1" id="name">BOTTOMS UP</h1>
       <h2 class="subtitle is-2" id="motto">"Beer worth Finding"</h2>
     </header>
 
+    <!--Hero image-->
     <div class="hero"></div>
+
+    <!--Main Content-->
     <main class="columns">
-      <section id="inputs" class="column is-one-fifth">
+      <section id="inputs" class="column is-one-quarter">
         <h2 class="filters">Filters</h2>
-        <br/>
+        <br />
+
+        <!--User-Input Form Section-->
         <form class="form" id="input-form">
           <label for="location">Postal Code:</label>
-             <input type="text" id="input-location" name="location" placeholder="90210"/><br />
+          <input
+            type="text"
+            id="input-location"
+            name="location"
+            placeholder="90210"
+          /><br />
 
           <label for="type">Brewery Size:</label>
           <select name="type" id="input-type">
@@ -56,38 +80,44 @@
           </select>
           <br />
 
-          <button class="button is-info is-rounded" id="clear-btn">Clear</button>
-          <button class="button is-info is-rounded" id="submit-btn">Submit</button>
+          <button class="button is-info is-rounded" id="clear-btn">
+            Clear
+          </button>
+          <button class="button is-info is-rounded" id="submit-btn">
+            Submit
+          </button>
         </form>
       </section>
 
-      <section id="results" class="column is-one-fifth">
-        <h2>Results</h2>
+      <!--Results Section-->
+      <section id="results" class="column is-three-quarters">
+        <h2 class="results">Results</h2>
+        <br />
+        <br />
         <table>
           <tbody id="repo-table" class="mx-auto text-center"></tbody>
         </table>
       </section>
-
-      <section id="map" class="column is-three-fifths"></section>
     </main>
 
+    <!--Footer Section-->
     <footer class="footer">
-        <h2>More About Us</h2>
-        <ul id="about_sec" >
-            <li>
-                <a href="https://github.com/c1flores"> Christian Flores</a>
-            </li>
-            <li>
-                <a href="https://github.com/CArmstrong2">Christofer Goldsmith</a>
-            </li>
-            <li>
-                <a href="https://github.com/LeinadZz">Daniel Gutierrez</a>
-            </li>
-            <li>
-                <a href="https://github.com/Dayian24">Dayian Martinez</a>
-            </li>
-        </ul>
-        <h2>Made for your taste buds ❤️</h2>
+      <h2>More About the Developers</h2>
+      <ul id="about_sec">
+        <li>
+          <a href="https://github.com/c1flores"> Christian Flores</a>
+        </li>
+        <li>
+          <a href="https://github.com/CArmstrong2">Christopher Goldsmith</a>
+        </li>
+        <li>
+          <a href="https://github.com/LeinadZz">Daniel Gutierrez</a>
+        </li>
+        <li>
+          <a href="https://github.com/Dayian24">Dayian Martinez</a>
+        </li>
+      </ul>
+      <h2 id="memo">Made for your taste buds ❤️</h2>
     </footer>
 
     <!--jQuery and Javascript logic links-->
