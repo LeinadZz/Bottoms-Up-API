@@ -35,6 +35,7 @@ $("#clear-btn").on("click", function (event) {
   $("#input-location").val("");
   $("#input-type").val("any");
   localStorage.clear();
+  $("#repo-table tr").remove(); 
 });
 
 function getResult() {
