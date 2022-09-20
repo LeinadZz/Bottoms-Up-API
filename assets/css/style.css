@@ -144,6 +144,15 @@ td {
   padding: 10px;
 }
 
+#street {
+  border: none;
+}
+
+#rating {
+  display: flex;
+  justify-content: end;
+  justify-content: center;
+}
 /*Media Queries*/
 @media screen and (max-width: 1096px) {
   .hero {
