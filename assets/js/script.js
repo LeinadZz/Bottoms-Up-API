@@ -70,8 +70,8 @@ function getResult() {
         var websiteUrl = document.createElement("a");
         var phoneNumber = document.createElement("td");
         var lineBreak = document.createElement("br");
-
-        //var streetName = document.createElement("td");
+        var streetName = document.createElement("td");
+        streetName.setAttribute('id', 'street');
         var googleNames = data[i].name;
         var latitude = data[i].latitude;
         var longitude = data[i].longitude;
@@ -80,7 +80,7 @@ function getResult() {
         websiteUrl.textContent = data[i].website_url;
         websiteUrl.href = data[i].website_url;
         phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
-        streetName.textContent = data[i].street;
+        streetName.textContent = `Street:   ${data[i].street}`;
 
         createTableRow.appendChild(tableData);
         tableBody.appendChild(createTableRow);
@@ -115,6 +115,7 @@ function getResult() {
               console.log(data2.results[0].rating);
 
               var placeRating = document.createElement("td");
+              placeRating.setAttribute('id', 'rating');
               var tableInfo = document.getElementById('tableInfo-'+ i);
 
               placeRating.textContent = `Rating: ${data2.results[0].rating}`;
