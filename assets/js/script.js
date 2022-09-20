@@ -66,6 +66,7 @@ function getResult() {
       for (let i = 0; i < data.length; i++) {
         var createTableRow = document.createElement("tr");
         var tableData = document.createElement("td");
+        tableData.setAttribute('id', 'tableInfo-' + i);
         var websiteUrl = document.createElement("a");
         var phoneNumber = document.createElement("td");
         var lineBreak = document.createElement("br");
@@ -79,14 +80,14 @@ function getResult() {
         websiteUrl.textContent = data[i].website_url;
         websiteUrl.href = data[i].website_url;
         phoneNumber.textContent = `Phone Number: ${data[i].phone}`;
-        //streetName.textContent = data[i].street;
+        streetName.textContent = data[i].street;
 
         createTableRow.appendChild(tableData);
         tableBody.appendChild(createTableRow);
         tableData.appendChild(lineBreak);
         tableData.appendChild(websiteUrl);
         tableBody.appendChild(phoneNumber);
-        //tableData.appendChild(streetName);
+        tableData.appendChild(streetName);
         createTableRow.appendChild(phoneNumber);
 
         // Google Maps Places API
@@ -110,15 +111,16 @@ function getResult() {
             console.log(data2);
 
             //for loop to iterate through breweries and display appropriate Google Places ratings in results table
-            for (let j = 0; j < data.length; j++) {
+            //for (let j = 0; j < data.length; j++) {
               console.log(data2.results[0].rating);
 
               var placeRating = document.createElement("td");
+              var tableInfo = document.getElementById('tableInfo-'+ i);
 
-              placeRating.textContent = `Rating: ${data2.results[j].rating}`;
+              placeRating.textContent = `Rating: ${data2.results[0].rating}`;
 
-              tableData.appendChild(placeRating);
-            }
+              tableInfo.appendChild(placeRating);
+           // }
           });
       }
     })
