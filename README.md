@@ -44,7 +44,7 @@ Then I can view a list of breweries that meet my search criteria
 
 
 ## Live Application
-[Deployed Application Link](https://leinadzz.github.io/Project1/)
+[Deployed Application Link](https://leinadzz.github.io/Bottoms-Up-API/)
 
 ## Screen Capture
 ![](https://user-images.githubusercontent.com/81927296/191135392-a5e5e7f9-24fd-4ec1-8854-6b7a461fe123.gif)
