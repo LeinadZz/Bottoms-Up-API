@@ -1,9 +1,7 @@
 # Bottoms Up
-
-An app designed to help people search for breweries by their postal code. The user can use it to search for breweries within the boundaries of their postal code and seek directions to specific breweries.
+An app designed to help people search for breweries by their postal code. The user can use it to search for breweries within the boundaries of their postal code and seek Google User rating information for each brewery searched. 
 
 ## Contributors
-
 - Christian Flores
 - Christopher Goldsmith
 - Daniel Gutierrez
@@ -40,7 +38,6 @@ Then I can view a list of breweries that meet my search criteria
 -  <a href="https://www.figma.com/" title="FigmaS"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" width="21px" height="21px"></a> - Figma
 
 ## Server-Side APIs & Brewery Dataset
-
 - [Open Brewery DB](https://www.openbrewerydb.org/)
 - [Open Brewery DB Dataset](https://github.com/openbrewerydb/openbrewerydb/tree/master/data/)
 - [Free Google Maps Places API](https://rapidapi.com/unbundling-search-unbundling-search-default/api/google-maps28/)
