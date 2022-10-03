@@ -1,12 +1,6 @@
 # Bottoms Up
 An app designed to help people search for breweries by their postal code. The user can use it to search for breweries within the boundaries of their postal code and seek Google User rating information for each brewery searched. 
 
-## Contributors
-- Christian Flores
-- Christopher Goldsmith
-- Daniel Gutierrez
-- Dayian Martinez
-
 ## User-Story
 ```
 As A user
@@ -37,14 +31,21 @@ Then I can view a list of breweries that meet my search criteria
 - <a href="https://code.visualstudio.com/" title="Visual Studio Code"><img src="https://github.com/get-icon/geticon/raw/master/icons/visual-studio-code.svg" alt="Visual Studio Code" width="21px" height="21px"></a> - Visual Studio Code
 -  <a href="https://www.figma.com/" title="FigmaS"><img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma" width="21px" height="21px"></a> - Figma
 
+## Screen Capture
+![](https://user-images.githubusercontent.com/81927296/191135392-a5e5e7f9-24fd-4ec1-8854-6b7a461fe123.gif)
+
+## Live Application
+[Deployed Application Link](https://leinadzz.github.io/Bottoms-Up-API/)
+
 ## Server-Side APIs & Brewery Dataset
 - [Open Brewery DB](https://www.openbrewerydb.org/)
 - [Open Brewery DB Dataset](https://github.com/openbrewerydb/openbrewerydb/tree/master/data/)
 - [Free Google Maps Places API](https://rapidapi.com/unbundling-search-unbundling-search-default/api/google-maps28/)
 
+## Contributors
+- [Christian Flores](https://github.com/c1flores)
+- [Christopher Goldsmith](https://github.com/CArmstrong2)
+- [Daniel Gutierrez](https://github.com/LeinadZz)
+- [Dayian Martinez](https://github.com/Dayian24)
 
-## Live Application
-[Deployed Application Link](https://leinadzz.github.io/Bottoms-Up-API/)
 
-## Screen Capture
-![](https://user-images.githubusercontent.com/81927296/191135392-a5e5e7f9-24fd-4ec1-8854-6b7a461fe123.gif)
